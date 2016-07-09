@@ -1,0 +1,248 @@
+// 1
+section('data-autoslide'=5000)
+  h1 gio
+  h2 @mokagio
+  h1 👋
+  br
+  h1.fragment('data-autoslide'=15000) 20x20
+
+// 2
+section
+  div(style="text-align: right")
+    h1(style="color: orange") Less Conventional Swift
+
+// 3
+section('data-autoslide'=4000)
+  h1 Free Functions
+  br
+  br
+  h3.fragment('data-autoslide'=16000)
+    :markdown-it
+      ```
+      // File.swift
+
+      func transform(input: A) -> B {
+        // ...
+      }
+      ```
+
+// 4
+section
+  h1
+    code enum
+
+// 5
+section
+  img(src='./img/enum-value-not-unique.jpg')
+
+// 6
+section('data-autoslide'=5000)
+  h1 Either
+  h2.fragment('data-autoslide'=15000)
+    :markdown-it
+      ```swift
+      enum Either<A,B>{
+        case Left(A)
+        case Right(B)
+      }
+      ```
+
+// 7
+section
+  div(style="float: left; width: 70%; max-height: 90%")
+    h4
+      :markdown-it
+        ```swift
+        let data: [Either<Pizza, Ad>] = [
+          // ...
+        ]
+
+        func tableView(
+          _ tableView: UITableView,
+          cellForRowAt indexPath: IndexPath
+          ) -> UITableViewCell {
+          let item = data[indexPath.row]
+
+          let identifier = identifier(forItem: item)
+
+          let cell = tableView.dequeueReusableCell(
+            withIdentifier: identifier,
+            for: indexPath
+          )
+
+          switch item {
+          case .Left(let model): configure(cell, withModel: model)
+          case .Right(let ad): configure(cell, withAd: ad)
+          }
+
+          return cell
+        }
+        ```
+  div(style="float: right; width: 30%;")
+    img(src="./img/pizza-and-ads.png" style="border: none; background: none;")
+
+// 8
+section('data-autoslide'=5000)
+  h1 Result
+  h2.fragment('data-autoslide'=15000)
+    :markdown-it
+      ```swift
+      enum Result<T> {
+        case Success(T)
+        case Failure(ErrorProtocol)
+      }
+      ```
+
+// 9
+section
+  h3
+    :markdown-it
+      ```swift
+      let task = session.dataTask(with: request) { (result: Result<(Data, URLResponse)>) in
+        switch result {
+        case .Success(let data, let response):
+          // Do stuff with data and response
+          break
+        case .Failure(let error):
+          // Do stuff with error
+          break
+        }
+      }
+
+      task.resume()
+      ```
+
+// 10
+section('data-autoslide'=5000)
+  h3
+    u https://github.com/antitypical/Result
+  br
+  br
+  div.fragment('data-autoslide'=15000)
+    :markdown-it
+      ## `map`
+      ## `mapError`
+
+// 11
+section
+  div(style="font-size: 1.2em")
+    :markdown-it
+      ```swift
+      do {
+        let json = try JSONSerialization.jsonObject(with: data, options: [])
+      } catch {
+        print(error)
+      }
+
+      //
+      // materialize!
+      //
+
+      let json = materialize {
+        try JSONSerialization.jsonObject(with: data, options: [])
+      }
+
+      switch json {
+      case .Success(let object):
+        // Do stuff with actual value
+        break
+      case .Failure(let error):
+        // Do stuff with error
+        break
+      }
+      ```
+
+// 12
+section
+  h2 enum for view state
+  br
+  h2
+    :markdown-it
+      ```swift
+      enum ViewState<T> {
+        case Empty
+        case Loading
+        case Loaded(T)
+        case Errored(ErrorProtocol)
+      }
+      ```
+
+// 13
+section('data-autoslide'=3000)
+  div
+    :markdown-it
+      ## `Optional<T>`
+  div.fragment('data-autoslide'=3000)
+    :markdown-it
+      ## `Either<A,B>`
+  div.fragment('data-autoslide'=18000)
+    :markdown-it
+      ## `Result<T>`
+
+// 14
+section('data-autoslide'=8000)
+  h1 Generics
+  div.fragment('data-autoslide'=12000)
+    h2 &
+    h1 Abstractions
+
+// 15
+section
+  h2 GenericTableViewController
+  br
+  h3
+    :markdown-it
+      ```swift
+      let vc: GenericTableViewController<String> =
+        tableViewController(
+          with: pizzaNames,
+          cellClass: UITableViewCell.self,
+          configurator: { value, cell in
+            cell.textLabel?.text = value
+          }
+        )
+      ```
+  br
+  br
+  h4
+    u https://github.com/mokagio/GenericTableViewController
+
+// 16
+section
+  h1
+    code init?
+
+// 17
+section('data-autoslide'=10000)
+  h1 Dependant Types
+
+  br
+  br
+
+  h2.fragment('data-autoslide'=2000)
+    code NotEmptyArray
+  h2.fragment('data-autoslide'=2000)
+    code PhoneNumber
+  h2.fragment('data-autoslide'=6000)
+    code BoundedInt
+
+// 18
+section('data-autoslide'=2000)
+  h1 Recap
+  br
+  h2.fragment('data-autoslide'=3000) free functions!
+  h2.fragment('data-autoslide'=3000) ✨ enums ✨
+  h2.fragment('data-autoslide'=3000) Either
+  h2.fragment('data-autoslide'=3000) Result
+  h2.fragment('data-autoslide'=9000) failable init
+
+// 19
+section
+  img(src="img/logos.png")
+
+// 20
+section('data-autoslide'=10000)
+  h2 Get out of the comfort zone
+  br
+  br
+  img.fragment(src="img/just-do-it.gif", 'data-autoslide'=10000)
