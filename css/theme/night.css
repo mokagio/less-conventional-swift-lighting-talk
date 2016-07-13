@@ -202,14 +202,15 @@ body {
  * LINKS
  *********************************************/
 .reveal a {
-  color: #e7ad52;
-  text-decoration: none;
+  color: #eee;
+  text-decoration: underline;
   -webkit-transition: color 0.15s ease;
   -moz-transition: color 0.15s ease;
   transition: color 0.15s ease; }
 
 .reveal a:hover {
   color: #f3d7ac;
+  text-decoration: underline;
   text-shadow: none;
   border: none; }
 
