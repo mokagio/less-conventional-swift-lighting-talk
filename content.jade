@@ -44,6 +44,21 @@ section
   img(src='./img/enum-value-not-unique.jpg')
 
 // 7
+section
+  h2 enum for view state
+  br
+  h2
+    :markdown-it
+      ```swift
+      enum ViewState<T> {
+        case Empty
+        case Loading
+        case Loaded(T)
+        case Errored(ErrorProtocol)
+      }
+      ```
+
+// 8
 section('data-autoslide'=5000)
   h1 Either
   br
@@ -56,7 +71,7 @@ section('data-autoslide'=5000)
       }
       ```
 
-// 8
+// 9
 section
   div(style="float: left; width: 70%; max-height: 90%")
     h4
@@ -90,7 +105,7 @@ section
   div(style="float: right; width: 30%;")
     img(src="./img/pizza-and-ads.png" style="border: none; background: none;")
 
-// 9
+// 10
 section('data-autoslide'=5000)
   h1 Result
   br
@@ -103,7 +118,7 @@ section('data-autoslide'=5000)
       }
       ```
 
-// 10
+// 11
 section
   h3
     :markdown-it
@@ -122,7 +137,7 @@ section
       task.resume()
       ```
 
-// 11
+// 12
 section('data-autoslide'=4000)
   h3
     a(src='https://github.com/antitypical/Result', target='_blank') https://github.com/antitypical/Result
@@ -135,7 +150,7 @@ section('data-autoslide'=4000)
     :markdown-it
       ## `mapError`, `flatMapError`
 
-// 12
+// 13
 section
   h2 materialize
   div(style="font-size: 1.2em")
@@ -162,21 +177,6 @@ section
       case .Failure(let error):
         // Do stuff with error
         break
-      }
-      ```
-
-// 13
-section
-  h2 enum for view state
-  br
-  h2
-    :markdown-it
-      ```swift
-      enum ViewState<T> {
-        case Empty
-        case Loading
-        case Loaded(T)
-        case Errored(ErrorProtocol)
       }
       ```
 
