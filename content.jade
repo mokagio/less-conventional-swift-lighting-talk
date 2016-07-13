@@ -73,37 +73,38 @@ section('data-autoslide'=5000)
 
 // 9
 section
-  div(style="float: left; width: 70%; max-height: 90%")
-    h4
-      :markdown-it
-        ```swift
-        let data: [Either<Pizza, Ad>] = [
-          // ...
-        ]
+  div(style="overflow: auto; zoom: 1;")
+    div(style="float: left; width: 70%; max-height: 90%")
+      h4
+        :markdown-it
+          ```swift
+          let data: [Either<Pizza, Ad>] = [
+            // ...
+          ]
 
-        func tableView(
-          _ tableView: UITableView,
-          cellForRowAt indexPath: IndexPath
-          ) -> UITableViewCell {
-          let item = data[indexPath.row]
+          func tableView(
+            _ tableView: UITableView,
+            cellForRowAt indexPath: IndexPath
+            ) -> UITableViewCell {
+            let item = data[indexPath.row]
 
-          let identifier = identifier(forItem: item)
+            let identifier = identifier(forItem: item)
 
-          let cell = tableView.dequeueReusableCell(
-            withIdentifier: identifier,
-            for: indexPath
-          )
+            let cell = tableView.dequeueReusableCell(
+              withIdentifier: identifier,
+              for: indexPath
+            )
 
-          switch item {
-          case .Left(let model): configure(cell, withModel: model)
-          case .Right(let ad): configure(cell, withAd: ad)
+            switch item {
+            case .Left(let model): configure(cell, withModel: model)
+            case .Right(let ad): configure(cell, withAd: ad)
+            }
+
+            return cell
           }
-
-          return cell
-        }
-        ```
-  div(style="float: right; width: 30%;")
-    img(src="./img/pizza-and-ads.png" style="border: none; background: none;")
+          ```
+    div(style="float: right; width: 30%;")
+      img(src="./img/pizza-and-ads.png" style="border: none; background: none;")
 
 // 10
 section('data-autoslide'=5000)
