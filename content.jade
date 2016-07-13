@@ -123,15 +123,17 @@ section
       ```
 
 // 11
-section('data-autoslide'=5000)
+section('data-autoslide'=4000)
   h3
     a(src='https://github.com/antitypical/Result', target='_blank') https://github.com/antitypical/Result
   br
   br
-  div.fragment('data-autoslide'=15000)
+  div.fragment('data-autoslide'=10000)
     :markdown-it
-      ## `map`
-      ## `mapError`
+      ## `map`, `flatMap`
+  div.fragment('data-autoslide'=6000)
+    :markdown-it
+      ## `mapError`, `flatMapError`
 
 // 12
 section
